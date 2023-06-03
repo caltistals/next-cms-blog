@@ -1,4 +1,12 @@
-import { Avatar, Box, Flex, Heading, Text } from "@/libs";
+import {
+  Avatar,
+  Box,
+  ExternalLinkIcon,
+  Flex,
+  Heading,
+  Link,
+  Text,
+} from "@/libs";
 
 export function Profile() {
   return (
@@ -17,6 +25,16 @@ export function Profile() {
         </Heading>
         <Text color="gray">Junior Software Engineer</Text>
         <Text color="gray">Kindai university (B4)</Text>
+        <Box>
+          <Link
+            href="https://github.com/caltistals"
+            color="teal.500"
+            isExternal
+          >
+            Github
+            <ExternalLinkIcon mx="2px" />
+          </Link>
+        </Box>
       </Box>
     </Flex>
   );
