@@ -22,14 +22,14 @@ export function SkillCard({ icon, label, startedAt, progress }: Skill) {
       <CardBody>
         <VStack>
           {icon}
-          <Heading as="h4" size="md">
+          <Heading as="h4" size="sm">
             {label}
           </Heading>
-          <Text fontSize="sm" color="gray">
+          <Text fontSize="xs" color="gray">
             {startedAt} -
           </Text>
         </VStack>
-        <Progress mt={3} size="sm" colorScheme="green" value={progress} />
+        <Progress mt={3} size="xs" colorScheme="green" value={progress} />
       </CardBody>
     </Card>
   );

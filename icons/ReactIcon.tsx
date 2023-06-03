@@ -5,8 +5,8 @@ export function ReactIcon() {
       aria-label="React"
       role="img"
       viewBox="0 0 512 512"
-      width="64px"
-      height="64px"
+      width="40px"
+      height="40px"
       fill="#000000"
     >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

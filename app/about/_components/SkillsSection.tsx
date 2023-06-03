@@ -45,8 +45,8 @@ const skills: Skill[] = [
 export function SkillsSection() {
   return (
     <Box as="section">
-      <SectionTitle title="Skills" />
-      <SimpleGrid columns={[2, 3, 3]} spacing={5}>
+      <SectionTitle title="Skill Set" />
+      <SimpleGrid columns={[2, 3, 4]} spacing={5}>
         {skills.map((skill) => (
           <SkillCard {...skill} key={skill.label} />
         ))}
