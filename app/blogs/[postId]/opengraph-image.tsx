@@ -1,5 +1,5 @@
 import { convertDate } from "@/libs/convertDate";
-import { fetchFont, loadGoogleFont } from "@/libs/font";
+import { fetchFont } from "@/libs/font";
 import { getDetail } from "@/libs/microcms";
 import { ImageResponse } from "next/server";
 
@@ -23,16 +23,10 @@ type Params = {
 
 export default async function og({ params }: Params) {
   const { title, createdAt } = await getDetail(params.postId);
-  const post = await getDetail(params.postId);
-  // const notoSansArrayBuffer = await loadGoogleFont({
-  //   family: "Noto Sans JP",
-  //   weight: 700,
-  //   text: `${title}caltistals.dev${convertDate(createdAt)}`,
-  // });
-  const name = title ? "caltistals.dev" : "miss";
+  const name = "caltistals.dev";
   const mPlus1p = await fetchFont(
     "M PLUS Rounded 1c:wght@500",
-    `${post.title ?? ""}${name}${convertDate(createdAt)}`
+    `${title ?? ""}${name}${convertDate(createdAt)}`
   );
 
   return new ImageResponse(
@@ -73,7 +67,7 @@ export default async function og({ params }: Params) {
             position: "relative",
           }}
         >
-          <h2>{post.title ?? "aaaaa"}</h2>
+          <h2>{title}</h2>
           <div
             style={{
               display: "flex",
@@ -113,7 +107,6 @@ export default async function og({ params }: Params) {
                 }}
               >
                 🦆 caltistals.dev
-                {title}
               </h2>
             </div>
           </div>
