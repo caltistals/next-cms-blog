@@ -4,13 +4,15 @@ import { PageTitle } from "../_components/PageTitle";
 import { BlogCard } from "./_components/BlogCard";
 import { convertDate } from "@/libs/convertDate";
 import { Box, List, VStack } from "@/libs";
+import { Pagination } from "./_components/Pagination";
+import { POST_PER_PAGE } from "@/common/siteSettings";
 
 export const metadata = {
   title: "Blog",
 };
 
 export default async function StaticPage() {
-  const { contents } = await getList();
+  const { contents, totalCount } = await getList({ limit: POST_PER_PAGE });
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>;
@@ -28,6 +30,7 @@ export default async function StaticPage() {
           );
         })}
       </List>
+      <Pagination totalCount={totalCount} />
     </Box>
   );
 }
