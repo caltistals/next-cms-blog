@@ -1,4 +1,6 @@
-import { loadGoogleFont } from "@/libs/font";
+import { convertDate } from "@/libs/convertDate";
+import { fetchFont, loadGoogleFont } from "@/libs/font";
+import { getDetail } from "@/libs/microcms";
 import { ImageResponse } from "next/server";
 
 /** ImageResponse対応 */
@@ -15,11 +17,23 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function og() {
-  const notoSansArrayBuffer = await loadGoogleFont({
-    family: "Noto Sans JP",
-    weight: 700,
-  });
+type Params = {
+  params: { postId: string };
+};
+
+export default async function og({ params }: Params) {
+  const { title, createdAt } = await getDetail(params.postId);
+  const post = await getDetail(params.postId);
+  // const notoSansArrayBuffer = await loadGoogleFont({
+  //   family: "Noto Sans JP",
+  //   weight: 700,
+  //   text: `${title}caltistals.dev${convertDate(createdAt)}`,
+  // });
+  const name = title ? "caltistals.dev" : "miss";
+  const mPlus1p = await fetchFont(
+    "M PLUS Rounded 1c:wght@500",
+    `${post.title ?? ""}${name}${convertDate(createdAt)}`
+  );
 
   return new ImageResponse(
     (
@@ -39,11 +53,13 @@ export default async function og() {
           alignItems: "center",
           justifyContent: "center",
           textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          fontFamily: "M PLUS Rounded 1c",
+          fontWeight: "bold",
         }}
       >
         <div
           style={{
-            fontSize: 90,
+            fontSize: 70,
             background: "white",
             width: "90%",
             height: "85%",
@@ -57,17 +73,59 @@ export default async function og() {
             position: "relative",
           }}
         >
-          <h2>🦆 caltistals.dev</h2>
+          <h2>{post.title ?? "aaaaa"}</h2>
+          <div
+            style={{
+              display: "flex",
+              position: "absolute",
+              width: "100%",
+              bottom: -30,
+              paddingLeft: 30,
+              paddingRight: 30,
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: 40,
+                  textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                {convertDate(createdAt)}
+              </h2>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: 40,
+                  textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                🦆 caltistals.dev
+                {title}
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     ),
     {
       fonts: [
         {
-          name: "NotoSansJP",
-          data: notoSansArrayBuffer,
+          name: "M PLUS Rounded 1c",
+          data: mPlus1p,
           style: "normal",
-          weight: 700,
         },
       ],
     }
