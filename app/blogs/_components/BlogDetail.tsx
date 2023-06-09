@@ -6,6 +6,7 @@ import {
   Divider,
   Text,
   Link as ChakraLink,
+  ChevronLeftIcon,
 } from "@/libs/";
 import { MarkdownTemplate } from "@/libs/MarkdownTEmplate";
 import Image from "next/image";
@@ -38,7 +39,7 @@ export function BlogDetail({ blog }: Props) {
       <Divider my={8} />
       <MarkdownTemplate source={blog.content} />
       <ChakraLink as={Link} href="/blogs" color="teal.500">
-        ← back
+        <ChevronLeftIcon /> back
       </ChakraLink>
     </Container>
   );

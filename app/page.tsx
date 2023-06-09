@@ -1,4 +1,4 @@
-import { Box, List, Link as ChakraLink } from "@/libs";
+import { Box, List, Link as ChakraLink, ChevronRightIcon } from "@/libs";
 import { PageTitle } from "./_components/PageTitle";
 import { Profile } from "./_components/Profile";
 import { getList } from "@/libs/microcms";
@@ -26,7 +26,7 @@ export default async function StaticPage() {
           ))}
         </List>
         <ChakraLink px={3} my={4} as={Link} color={"teal.500"} href="/blogs">
-          see all →
+          see all <ChevronRightIcon />
         </ChakraLink>
       </Box>
     </Box>
