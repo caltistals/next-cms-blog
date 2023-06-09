@@ -1,8 +1,16 @@
 import { Blog } from "@/libs/microcms";
-import { Stack, Container, Heading, Divider, Text } from "@/libs/";
+import {
+  Stack,
+  Container,
+  Heading,
+  Divider,
+  Text,
+  Link as ChakraLink,
+} from "@/libs/";
 import { MarkdownTemplate } from "@/libs/MarkdownTEmplate";
 import Image from "next/image";
 import { convertDate } from "@/libs/convertDate";
+import Link from "next/link";
 
 type Props = {
   blog: Blog;
@@ -29,6 +37,9 @@ export function BlogDetail({ blog }: Props) {
       </Stack>
       <Divider my={8} />
       <MarkdownTemplate source={blog.content} />
+      <ChakraLink as={Link} href="/blogs" color="teal.500">
+        ← back
+      </ChakraLink>
     </Container>
   );
 }
