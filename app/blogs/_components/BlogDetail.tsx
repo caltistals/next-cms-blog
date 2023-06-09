@@ -8,7 +8,7 @@ import {
   Link as ChakraLink,
   ChevronLeftIcon,
 } from "@/libs/";
-import { MarkdownTemplate } from "@/libs/MarkdownTemplate";
+import { MarkdownTemplate } from "./MarkdownTemplate";
 import Image from "next/image";
 import { convertDate } from "@/libs/convertDate";
 import Link from "next/link";
