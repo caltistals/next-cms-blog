@@ -1,5 +1,5 @@
 import { getList } from "@/libs/microcms";
-import { Box, List } from "@/libs";
+import { Box, List, Text } from "@/libs";
 import { PageTitle } from "@/app/_components/PageTitle";
 import Link from "next/link";
 import { BlogCard } from "../../_components/BlogCard";
@@ -32,6 +32,9 @@ export default async function StaticPage({
   return (
     <Box>
       <PageTitle title="Blog" />
+      <Text color="gray" my={5}>
+        {totalCount}posts
+      </Text>
       <List>
         {contents.map((post) => {
           return (

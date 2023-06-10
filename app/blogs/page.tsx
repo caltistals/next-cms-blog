@@ -3,7 +3,7 @@ import { getList } from "@/libs/microcms";
 import { PageTitle } from "../_components/PageTitle";
 import { BlogCard } from "./_components/BlogCard";
 import { convertDate } from "@/libs/convertDate";
-import { Box, List, VStack } from "@/libs";
+import { Box, List, Text, VStack } from "@/libs";
 import { Pagination } from "./_components/Pagination";
 import { POST_PER_PAGE } from "@/common/siteSettings";
 
@@ -21,6 +21,9 @@ export default async function StaticPage() {
   return (
     <Box>
       <PageTitle title="Blog" />
+      <Text color="gray" my={5}>
+        {totalCount}posts
+      </Text>
       <List>
         {contents.map((post) => {
           return (
