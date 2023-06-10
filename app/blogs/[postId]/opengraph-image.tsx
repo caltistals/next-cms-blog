@@ -3,12 +3,10 @@ import { fetchFont } from "@/libs/font";
 import { getDetail } from "@/libs/microcms";
 import { ImageResponse } from "next/server";
 
-/** ImageResponse対応 */
 export const runtime = "edge";
-/** 有効期間 */
+
 export const revalidate = 10;
 
-/** 13.3.0現在ここを動的にはできない */
 export const alt = "記事のアイキャッチ画像";
 export const size = {
   width: 1200,
@@ -23,6 +21,7 @@ type Params = {
 
 export default async function og({ params }: Params) {
   const { title, createdAt } = await getDetail(params.postId);
+
   const name = "caltistals.dev";
   const mPlus1p = await fetchFont(
     "M PLUS Rounded 1c:wght@500",
@@ -67,7 +66,7 @@ export default async function og({ params }: Params) {
             position: "relative",
           }}
         >
-          <h2>{title}</h2>
+          <h2 style={{ padding: "20px" }}>{title}</h2>
           <div
             style={{
               display: "flex",
