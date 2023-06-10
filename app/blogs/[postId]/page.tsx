@@ -19,9 +19,9 @@ export async function generateMetadata({
 }: {
   params: { postId: string };
 }) {
-  const { title } = await getDetail(postId);
+  const { title, description } = await getDetail(postId);
 
-  return { title };
+  return { title, description };
 }
 
 export default async function StaticDetailPage({
@@ -30,8 +30,6 @@ export default async function StaticDetailPage({
   params: { postId: string };
 }) {
   const post = await getDetail(postId);
-
-  const time = new Date().toLocaleString();
 
   if (!post) {
     notFound();

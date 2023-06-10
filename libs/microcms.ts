@@ -9,6 +9,7 @@ export type Blog = {
   id: string;
   title: string;
   content: string;
+  description: string;
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 

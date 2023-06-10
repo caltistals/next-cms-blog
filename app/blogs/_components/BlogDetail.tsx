@@ -25,6 +25,7 @@ export function BlogDetail({ blog }: Props) {
         <Heading as="h1" size="lg">
           {blog.title}
         </Heading>
+        <Text color="gray">{blog.description}</Text>
         {blog.eyecatch?.url &&
           blog.eyecatch?.width &&
           blog.eyecatch?.height && (
