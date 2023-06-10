@@ -1,12 +1,10 @@
 import { loadGoogleFont } from "@/libs/font";
 import { ImageResponse } from "next/server";
 
-/** ImageResponse対応 */
 export const runtime = "edge";
-/** 有効期間 */
-export const revalidate = 10;
 
-/** 13.3.0現在ここを動的にはできない */
+export const revalidate = 60 * 60;
+
 export const alt = "記事のアイキャッチ画像";
 export const size = {
   width: 1200,

@@ -5,7 +5,7 @@ import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
 
-export const revalidate = 10;
+export const revalidate = 60 * 60;
 
 export const alt = "記事のアイキャッチ画像";
 export const size = {
