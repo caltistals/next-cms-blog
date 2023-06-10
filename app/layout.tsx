@@ -31,7 +31,7 @@ export default function RootLayout({
         <Provider>
           <Container maxW="container.md">
             <Header />
-            <Box px={10} pt={10} pb={100}>
+            <Box px={[0, 10, 10, 10]} pt={10} pb={100}>
               {children}
             </Box>
           </Container>
