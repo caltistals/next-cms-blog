@@ -15,6 +15,9 @@ const notojp = Noto_Sans_JP({
 export const metadata = {
   title: { default: siteName, template: `%s | ${siteName}` },
   description,
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
