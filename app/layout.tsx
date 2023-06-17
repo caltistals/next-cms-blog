@@ -1,6 +1,7 @@
 import { Provider } from "@/libs/Provider";
-import { Box, Container, SlideFade } from "@/libs";
-import { Noto_Sans_JP } from "@next/font/google";
+import { Box, Container } from "@/libs";
+import { Noto_Sans_JP, M_PLUS_Rounded_1c } from "@next/font/google";
+import { Metadata } from "next";
 import { Header } from "./_components/Header";
 
 const siteName = "caltistals.dev";
@@ -12,11 +13,17 @@ const notojp = Noto_Sans_JP({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: { default: siteName, template: `%s | ${siteName}` },
   description,
+  openGraph: {
+    title: siteName,
+    description,
+  },
   twitter: {
+    title: siteName,
     card: "summary_large_image",
+    description,
   },
 };
 
